@@ -1,0 +1,277 @@
+@media (max-width: 1750px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        margin: auto;
+    }
+}
+
+@media (max-width: 1180px) {
+    body {
+        background-image: url('../images/bg-main-mobile.png');
+        background-repeat: no-repeat;
+        background-size: 100% 360px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        margin: auto;
+    }
+
+    .cards {
+        flex-direction: column-reverse;
+        margin-bottom: 180px;
+        margin-top: 70px;
+        position: relative;
+    }
+
+    .card-front {
+        position: absolute;
+        top: 138px;
+    }
+
+    .card-back{
+        z-index: -1;
+        padding-left: 100px;
+    }
+
+    .attribution {
+        margin-top: 30px;
+        position: relative;
+        right: 0;
+        bottom: 0;
+    }
+
+    /* Arquivo info-cards */
+
+    .tesk-completed {
+        margin-top: 30px;
+    }
+    
+}
+
+
+@media (max-width: 580px) {
+    body {
+        background-size: 100% 330px;
+    }
+
+    .cards {
+        margin-bottom: 100px;
+    }
+
+    .container {
+        height: auto;
+    }
+
+    .cards .img-cards{
+        max-width: 380px;
+    }
+
+    .data-card-front {
+        left: 20px;
+        bottom: 27px; 
+    }
+
+    .data-card-front .logo-card {
+        top: -80px;
+    }
+
+    .data-card-front #numbers-card {
+        font-size: 21px;
+    }
+
+    .data-card-front div {
+        font-size: 14px;
+    }
+
+    .card-back p {
+        right: 45px;
+        top: 90px;
+    }
+    
+    /* Arquivo info-cards */
+
+    .info-datas {
+        width: auto;
+        padding: 50px 50px 0 50px;
+    }
+}
+
+@media (max-width: 510px) {
+    body {
+        background-size: 100% 280px;
+    }
+
+    .cards {
+        margin-bottom: 100px;
+    }
+
+    .cards .img-cards{
+        max-width: 300px;
+    }
+
+    .data-card-front {
+        width: 95%;
+        left: 10px;
+        bottom: 27px;
+        padding: 0 10px 0 5px;
+    }
+
+    .data-card-front .logo-card {
+        top: -68px;
+        max-width: 70px;
+    }
+
+    .data-card-front #numbers-card {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .data-card-front div {
+        font-size: 12px;
+    }
+
+    .card-front {
+        top: 93px;
+        padding-right: 0px;
+    }
+
+    .card-back {
+        font-size: 14px;
+        padding-left: 70px;
+    }
+
+    .card-back p {
+        right: 35px;
+        top: 71px;
+    }
+
+    /* Arquivo info-cards */
+
+    .info-datas {
+        padding: 23px 23px 0 23px;
+        font-size: 15px;
+    }
+
+    .info-datas .but-form {
+        font-size: 17px;
+    }
+
+    .info-date-cvc .card-maturity input{
+        max-width: 150px;
+    }
+
+    .camp-mandatory, .date-invalid,
+    .invalid-name {
+        font-size: 12px;
+    }
+
+    .info-datas .title-complete {
+        font-size: 23px;
+    }
+
+    .info-datas .paragrafy-complete {
+        font-size: 15px;
+}
+}
+
+@media (max-width: 380px) {
+    body {
+        background-size: 100% 230px;
+    }
+
+    .cards .img-cards{
+        max-width: 250px;
+    }
+
+    .data-card-front {    
+        width: 100%;   
+        left: 0px;
+        bottom: 20px;
+        padding: 0 12px 0 12px;
+    }
+
+    .data-card-front .logo-card {
+        top: -57px;
+        padding-left: 10px;
+        max-width: 60px;
+    }
+
+    .data-card-front #numbers-card {
+        font-size: 11px;
+        margin-bottom: 15px;
+    }
+
+    .data-card-front div {
+        font-size: 10px;
+    }
+
+    .card-front {
+        top: 78px;
+        padding-right: 0px;
+    }
+
+    .card-back {
+        font-size: 12px;
+    }
+
+    .card-back p {
+        right: 28px;
+        top: 60px;
+    }
+
+    /* Arquivo info-cards */
+
+    .info-datas {
+        width: auto;
+        padding: 0 23px;
+        font-size: 13px;
+    }
+
+    .info-datas input {
+        font-size: 15px;
+    }
+
+    .camp-mandatory, .date-invalid,
+    .invalid-name {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 330px) {
+    .cards .img-cards{
+        max-width: 240px;
+    }
+
+    .data-card-front {      
+        padding: 0 15px 0 15px;
+    }
+
+    .data-card-front .logo-card {
+        top: -57px;
+        padding-left: 10px;
+        max-width: 60px;
+    }
+
+    .data-card-front #numbers-card {
+        font-size: 10px;
+    }
+
+    .data-card-front div {
+        font-size: 9px;
+    }
+
+    .card-front {
+        top: 74px;
+    }
+
+    .card-back {
+        font-size: 10px;
+        padding-left: 57px;
+    }
+
+    .card-back p {
+        right: 26px;
+        top: 58px;
+    }
+}

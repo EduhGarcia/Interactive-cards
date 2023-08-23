@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png">
+
+  <title>Interactive Cards</title>
+
+  <link rel="stylesheet" href="./src/css/reset.css">
+  <link rel="stylesheet" href="./src/css/globais.css">
+  <link rel="stylesheet" href="./src/css/cards.css">
+  <link rel="stylesheet" href="./src/css/info-cards.css">
+  <link rel="stylesheet" href="./src/css/responsivo.css">
+</head>
+
+<body>
+  <main class="container">
+    <div class="cards">
+      <div class="card-front">
+        <img src="./src/images/bg-card-front.png" class="img-cards" alt="Parte da frente do cartão">
+
+
+        <div class="data-card-front">
+          <img class="logo-card" src="./src/images/card-logo.svg" alt="logo cartão">
+
+
+          <p id="numbers-card">0000 0000 0000 0000</p>
+
+          <div>
+            <p id="namePeopleCard">Jane Appleseed</p>
+            <p id="DateCard">00/00</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card-back">
+        <img class="img-cards" src="./src/images/bg-card-back.png" alt="Verso do cartão">
+
+        <p id="securityCode">000</p>
+
+      </div>
+    </div>
+
+    <div>
+      <form class="info-datas" id="info-datas">
+
+        <label for="card-name">Cardholder Name</label>
+        <input type="text" class="border-Input" id="card-name" placeholder="e.g. Jane Appleseed">
+        <p class="camp-mandatory">Campo vazio</p>
+        <p class="invalid-name" id="invalid-name">Nome inválido</p>
+
+        <label for="card-number">Card Number</label>
+        <input type="number" class="border-Input" id="card-number" placeholder="e.g. 1234 5678 9123 0000">
+        <p class="camp-mandatory">Campo vazio</p>
+
+        <div class="info-date-cvc">
+          <div class="section-date">
+            <label for="card-date">Exp. Date (MM/YY)</label>
+
+            <div class="card-maturity">
+              <div>
+                <input type="number" class="border-Input" id="card-date" placeholder="MM">
+                <p class="camp-mandatory">Campo vazio</p>
+                <p class="date-invalid" id="date-invalid">Data inválida</p>
+              </div>
+
+              <div>
+                <input type="number" class="border-Input" id="card-date" placeholder="YY">
+                <p class="camp-mandatory">Campo vazio</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="section-cvc">
+
+            <label for="card-CVC">CVC</label>
+            <input type="number" class="border-Input" id="card-CVC" placeholder="e.g. 123">
+            <p class="camp-mandatory">Campo vazio</p>
+
+          </div>
+        </div>
+
+        <button class="but-form" id="but-confirm">Confirm</button>
+      </form>
+    </div>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </main>
+
+  
+
+  <script src="./src/scripts/index.js"></script>
+</body>
+
+</html>

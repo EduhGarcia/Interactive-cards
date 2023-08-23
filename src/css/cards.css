@@ -1,0 +1,51 @@
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.card-front {
+    position: relative;
+    color: hsl(0, 0%, 100%);
+    padding-right: 110px;
+}
+
+.data-card-front .logo-card {
+    position: absolute;
+    top: -93px;
+    left: 0;
+}
+
+.data-card-front {
+    width: 69%;
+    position: absolute;
+    left: 30px;
+    bottom: 40px;
+}
+
+.data-card-front div {
+    display: flex;
+    letter-spacing: 2px;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.data-card-front #numbers-card {
+    font-size: 26px;
+    margin-bottom: 32px;
+    letter-spacing: 5px;
+}
+
+.card-back {
+    padding-left: 110px;
+    position: relative;
+    color: hsl(0, 0%, 100%);
+    font-size: 20px;
+}
+
+.card-back p {
+    position: absolute;
+    right: 53px;
+    top: 108px;
+    letter-spacing: 2px;
+}
