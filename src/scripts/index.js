@@ -37,9 +37,9 @@ fillInfoCards.forEach((element, index) => {
                 }
 
                 if (valueNumbersCard.length <= 19) {
-                    const result = 19 - valueNumbersCard.length
+                    const quantifiedNumbersCard = 19 - valueNumbersCard.length
 
-                    for (let i = 0; i < result; i++) {
+                    for (let i = 0; i < quantifiedNumbersCard; i++) {
                         if (valueNumbersCard.length == 4 || valueNumbersCard.length == 9 || valueNumbersCard.length == 14) {
 
                             valueNumbersCard += ' '
@@ -65,12 +65,12 @@ fillInfoCards.forEach((element, index) => {
                     dateInvalid.classList.add('active')
                 } else {
                     dateInvalid.classList.remove('active')
+
                     if (fillInfoCards[3].value === '') {
                         DateCard.innerHTML = element.value + "/00"
                     } else {
                         DateCard.innerHTML = element.value + `/${fillInfoCards[3].value}`
                     }
-
                 }
 
             } else if (index === 3) {
@@ -102,9 +102,12 @@ fillInfoCards.forEach((element, index) => {
             if (index === 0) {
                 invalidName.classList.remove('active')
                 namePeopleCard.innerHTML = 'JANE APPLESEED'
+
             } else if (index === 1) {
                 cardNumbers.innerHTML = '0000 0000 0000 0000'
+
             } else if (index === 2) {
+                
                 if (fillInfoCards[3].value !== '') {
                     DateCard.innerHTML = '00/' + fillInfoCards[3].value
                 } else {
@@ -112,6 +115,7 @@ fillInfoCards.forEach((element, index) => {
                 }
 
             } else if (index === 3) {
+
                 if (fillInfoCards[2].value !== '') {
                     DateCard.innerHTML = fillInfoCards[2].value + '/00'
                 } else {
