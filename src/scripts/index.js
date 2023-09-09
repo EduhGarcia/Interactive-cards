@@ -10,8 +10,34 @@ const invalidName = document.getElementById("invalid-name");
 const fillInfoCards = document.querySelectorAll("input");
 const campMandatory = document.querySelectorAll(".camp-mandatory");
 
-fillInfoCards.forEach((element, index) => {
+function indetificarCampoVazio(event) {
+    event.preventDefault()
+    let count = 0
 
+    fillInfoCards.forEach((item, index) => {
+
+        if (item.value === "") {
+            campMandatory[index].classList.add('active')
+            fillInfoCards[index].classList.add('input-error')
+            count = 1
+
+        } else if (item.value !== "") {
+            return count++
+        }
+    })
+
+    if (count === 5) {
+        infoDatas.classList.add("tesk-completed")
+
+        infoDatas.innerHTML =
+            `<img src="./src/images/icon-complete.svg" class="img-complete" alt="Icone de complete">
+             <h2 class="title-complete">Thank you!</h2> 
+             <p class="paragrafy-complete" >We've added your card details</p>
+             <button class="but-form" >Continue</button>`
+    }
+}
+
+fillInfoCards.forEach((element, index) => {
     element.addEventListener("change", () => {
         if (element.value !== '') {
             campMandatory[index].classList.remove('active')
@@ -98,7 +124,6 @@ fillInfoCards.forEach((element, index) => {
                 }
             }
         } else {
-
             if (index === 0) {
                 invalidName.classList.remove('active')
                 namePeopleCard.innerHTML = 'JANE APPLESEED'
@@ -107,7 +132,7 @@ fillInfoCards.forEach((element, index) => {
                 cardNumbers.innerHTML = '0000 0000 0000 0000'
 
             } else if (index === 2) {
-                
+
                 if (fillInfoCards[3].value !== '') {
                     DateCard.innerHTML = '00/' + fillInfoCards[3].value
                 } else {
@@ -129,30 +154,4 @@ fillInfoCards.forEach((element, index) => {
     })
 });
 
-butConfirm.addEventListener("click", (event) => {
-    event.preventDefault()
-    let count = 0
-
-    fillInfoCards.forEach((item, index) => {
-
-        if (item.value === "") {
-            campMandatory[index].classList.add('active')
-            fillInfoCards[index].classList.add('input-error')
-            count = 1
-
-        } else if (item.value !== "") {
-            return count = 0
-        }
-
-    })
-
-    if (count === 0) {
-        infoDatas.classList.add("tesk-completed")
-
-        infoDatas.innerHTML =
-            `<img src="./src/images/icon-complete.svg" class="img-complete" alt="Icone de complete">
-             <h2 class="title-complete">Thank you!</h2> 
-             <p class="paragrafy-complete" >We've added your card details</p>
-             <button class="but-form" >Continue</button>`
-    }
-})
+butConfirm.addEventListener("click", (event) => indetificarCampoVazio(event))
