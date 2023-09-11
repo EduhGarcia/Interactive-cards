@@ -1,4 +1,6 @@
-const infoDatas = document.getElementById("info-datas");
+import { indetificarCampoVazio, cardFrontNumber, 
+fillInfoCards, campMandatory } from "./utilidades.js";
+
 const namePeopleCard = document.getElementById("namePeopleCard");
 const cardNumbers = document.getElementById("numbers-card");
 const DateCard = document.getElementById("DateCard");
@@ -7,147 +9,90 @@ const butConfirm = document.getElementById("but-confirm");
 const dateInvalid = document.getElementById("date-invalid");
 const invalidName = document.getElementById("invalid-name");
 
-const fillInfoCards = document.querySelectorAll("input");
-const campMandatory = document.querySelectorAll(".camp-mandatory");
-
-function indetificarCampoVazio(event) {
-    event.preventDefault()
-    let count = 0
-
-    fillInfoCards.forEach((item, index) => {
-
-        if (item.value === "") {
-            campMandatory[index].classList.add('active')
-            fillInfoCards[index].classList.add('input-error')
-            count = 1
-
-        } else if (item.value !== "") {
-            return count++
-        }
-    })
-
-    if (count === 5) {
-        infoDatas.classList.add("tesk-completed")
-
-        infoDatas.innerHTML =
-            `<img src="./src/images/icon-complete.svg" class="img-complete" alt="Icone de complete">
-             <h2 class="title-complete">Thank you!</h2> 
-             <p class="paragrafy-complete" >We've added your card details</p>
-             <button class="but-form" >Continue</button>`
-    }
-}
-
 fillInfoCards.forEach((element, index) => {
     element.addEventListener("change", () => {
-        if (element.value !== '') {
+        const inputValue = element.value
+        const mouthValue = fillInfoCards[2].value
+        const yearValue = fillInfoCards[3].value
+
+        if (inputValue) {
             campMandatory[index].classList.remove('active')
             fillInfoCards[index].classList.remove('input-error')
 
             if (index === 0) {
-
-                if (isNaN(element.value)) {
+                if (isNaN(inputValue)) {
                     invalidName.classList.remove('active')
-                    namePeopleCard.innerHTML = element.value
+                    namePeopleCard.innerHTML = inputValue
                 } else {
                     invalidName.classList.add('active')
+                    fillInfoCards[index].classList.add('input-error')
                 }
 
             } else if (index === 1) {
-                let valueNumbersCard = ''
 
-                for (let i = 0; i < element.value.length; i++) {
-                    valueNumbersCard += element.value[i]
-                    if (i === 3 || i === 7 || i === 11) {
-                        valueNumbersCard += " "
-                    }
-                }
-
-                if (valueNumbersCard.length <= 19) {
-                    const quantifiedNumbersCard = 19 - valueNumbersCard.length
-
-                    for (let i = 0; i < quantifiedNumbersCard; i++) {
-                        if (valueNumbersCard.length == 4 || valueNumbersCard.length == 9 || valueNumbersCard.length == 14) {
-
-                            valueNumbersCard += ' '
-
-                        } else {
-                            valueNumbersCard += "0"
-                        }
-                    }
-
-                    cardNumbers.innerHTML = valueNumbersCard
-                } else {
-                    let numberMeaning = ''
-                    for (let i = 0; i <= 18; i++) {
-                        numberMeaning += valueNumbersCard[i]
-                    }
-
-                    cardNumbers.innerHTML = numberMeaning
-                }
+                cardFrontNumber(inputValue, cardNumbers)
 
             } else if (index === 2) {
 
-                if (element.value <= 0 || element.value > 12) {
+                if (inputValue <= 0 || inputValue > 12) {
                     dateInvalid.classList.add('active')
+                    fillInfoCards[index].classList.add('input-error')
                 } else {
                     dateInvalid.classList.remove('active')
 
-                    if (fillInfoCards[3].value === '') {
-                        DateCard.innerHTML = element.value + "/00"
-                    } else {
-                        DateCard.innerHTML = element.value + `/${fillInfoCards[3].value}`
-                    }
+                    !yearValue ? DateCard.innerHTML = inputValue + "/00" : DateCard.innerHTML = inputValue + `/${yearValue}`
                 }
 
             } else if (index === 3) {
                 const innerActualy = DateCard.innerHTML[0] + DateCard.innerHTML[1]
-                DateCard.innerHTML = innerActualy + `/${element.value}`
+                DateCard.innerHTML = innerActualy + `/${inputValue}`
 
             } else if (index === 4) {
-                if (element.value.length <= 3) {
+                if (inputValue.length <= 3) {
 
-                    if (element.value.length !== 3) {
-                        cvc.innerHTML = element.value + "0"
+                    if (inputValue.length !== 3) {
+
+                        inputValue.length === 1 ? cvc.innerHTML = inputValue + "00" 
+                        : cvc.innerHTML = inputValue + "0"
+
                     } else {
-                        cvc.innerHTML = element.value
+                        cvc.innerHTML = inputValue
                     }
 
                 } else {
                     let cvcNumber = ""
-                    for (let i = 0; i < element.value.length; i++) {
 
+                    for (let i = 0; i < inputValue.length; i++) {
                         if (i <= 2) {
-                            cvcNumber += element.value[i]
+                            cvcNumber += inputValue[i]
                             cvc.innerHTML = cvcNumber
                         }
                     }
                 }
             }
         } else {
+            fillInfoCards[index].classList.remove('input-error')
+
             if (index === 0) {
+
                 invalidName.classList.remove('active')
                 namePeopleCard.innerHTML = 'JANE APPLESEED'
 
             } else if (index === 1) {
+
                 cardNumbers.innerHTML = '0000 0000 0000 0000'
 
             } else if (index === 2) {
 
-                if (fillInfoCards[3].value !== '') {
-                    DateCard.innerHTML = '00/' + fillInfoCards[3].value
-                } else {
-                    DateCard.innerHTML = '00/00'
-                }
+                dateInvalid.classList.remove('active')
+                yearValue ? DateCard.innerHTML = '00/' + yearValue : DateCard.innerHTML = '00/00'
 
             } else if (index === 3) {
 
-                if (fillInfoCards[2].value !== '') {
-                    DateCard.innerHTML = fillInfoCards[2].value + '/00'
-                } else {
-                    DateCard.innerHTML = '00/00'
-                }
+                mouthValue ? DateCard.innerHTML = mouthValue + '/00' : DateCard.innerHTML = '00/00'
 
             } else if (index === 4) {
+                
                 cvc.innerHTML = '000'
             }
         }
