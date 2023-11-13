@@ -1,5 +1,5 @@
 # Cartão interativo 💳
-Esse é um desafio do Fronend Mentor https://www.frontendmentor.io/, nele podemos adicionar informações nessesárias de um cartão e em tempo real será atualizado os dados na imagem do cartão.
+Esse é um desafio do Frontend Mentor https://www.frontendmentor.io/, nele podemos adicionar informações necessárias de um cartão e em tempo real será atualizado os dados na imagem do cartão.
 
 <img src="./src/images/imagem-projeto.png">
 
